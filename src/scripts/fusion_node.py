@@ -5,7 +5,7 @@ from std_msgs.msg import String
 from random import randint
 import pika
 from ret2json import *
-
+import time
 
 class Server(object):
     def __init__(self):
@@ -41,6 +41,7 @@ class Server(object):
             # self.mq_channel.queue_declare(queue='test', durable=False, arguments={'x-message-ttl': 10000})
             self.mq_conn_flag = True
             print(" ************** MQ Connect Success ************** ")
+            time.sleep(3)
         except Exception as e:
             print(e)
 
