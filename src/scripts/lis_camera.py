@@ -15,7 +15,6 @@ class ListenR(object):
             import scenarios2json
             self.rs = scenarios2json.INFO2JSON()
             rospy.set_param('get_lidar_data', True)  # False
-            rospy.set_param('get_lidar_time', str(rospy.get_rostime()))
         self.pub = rospy.Publisher('/camera_ret', String, queue_size=1)
 
     def listener_camera(self):
@@ -37,6 +36,7 @@ class ListenR(object):
         ret = camera_.detector.run(self.images, camera_.input_meta)['results']
         # ret_cam = ret2json.camera_json(ret)
         if Configs.risk_test:
+            rospy.set_param('get_lidar_time', str(rospy.get_rostime()))
             self.rs.transfer_data_mq(ret)
         print("Camera Detect time " + str(int((time.time() - start_time) * 1000)) + ' ms')
         # self.pub.publish(str(ret_cam))
