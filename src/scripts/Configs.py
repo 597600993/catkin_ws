@@ -45,7 +45,8 @@ video_path = "/home/today/视频/风险等级评估/video/路测车辆起步-.mp
 risk_test = True
 
 """ ################################        Camera Info & Config        ###############################  """
-# video_path = "/mnt/data/test.mp4"
+video_path = "/mnt/data/test.mp4"
+rtsp_path = "rtsp://10.80.8.52/test"
 camera_data_sub = "/camera_image"
 camera_ret_sub = "/camera_ret"
 camera_model_path = camera_src + 'models/nuScenes_3Dtracking.pth'

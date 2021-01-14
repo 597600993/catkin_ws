@@ -9,7 +9,7 @@ import cv2
 
 
 def camera_node():
-    cap = cv2.VideoCapture(Configs.video_path)
+    cap = cv2.VideoCapture(Configs.rtsp_path)
     fps = cap.get(cv2.CAP_PROP_FPS)
     rospy.init_node('camera', anonymous=True)
     pub = rospy.Publisher('/camera_image', Image, queue_size=10)
@@ -23,7 +23,7 @@ def camera_node():
                 cap = cv2.VideoCapture(Configs.video_path)
                 print("*************** Restart ****************")
                 i = 0
-                time.sleep(2)
+                time.sleep(1)
                 continue
             image_temp = Image()
             header = Header(stamp=rospy.Time.now())
